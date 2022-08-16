@@ -49,9 +49,8 @@ namespace DreamyApi2.Controllers
         public async Task<IActionResult> SaveBooks([FromBody] Book book)
         {
             try
-            {
-                var newBook = await _bk.Save(book);
-                return CreatedAtAction(nameof(GetBooks), new { id = newBook.Id }, newBook);
+            {         
+                return Ok(await _bk.Save(book));
             }
             catch
             {
